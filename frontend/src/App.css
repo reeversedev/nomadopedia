@@ -1,10 +1,49 @@
 .navbar-brand .site-title {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 25px;
   font-weight: bold;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
+
+.about-image {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 9px auto 24px;
+}
+.about-image img {
+  width: 100%;
+  height: auto;
+}
+.author-title {
+  font-size: 18px;
+  color: #222222;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+.author-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  margin: 15px auto 23px;
+  background: #d95204;
+}
+.description {
+  background: #ffffff;
+  color: #7b7b7b;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
