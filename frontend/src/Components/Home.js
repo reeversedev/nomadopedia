@@ -16,17 +16,27 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <ImageSlider />
+        {/* <ImageSlider /> */}
         <Container>
           <Row>
             <Col sm="8">
               <div>
                 <Card>
-                  <CardText className="text-center">March 10, 2018</CardText>
-                  <CardTitle className="text-center">
-                    Awesome Standard Post
-                  </CardTitle>
-                  <CardLink className="text-center text-uppercase text-warning">Lifestyle/ widget</CardLink>
+                  <CardBody>
+                    <CardText className="text-center">March 10, 2018</CardText>
+                    <CardTitle className="text-center">
+                      Awesome Standard Post
+                    </CardTitle>
+                    <p className="text-center ">
+                      <CardLink className="text-uppercase text-warning">
+                        Lifestyle/ widget
+                      </CardLink>
+                    </p>
+                  </CardBody>
+                  <img
+                    src="https://themes.wplook.com/morning-time/wp-content/uploads/sites/16/2018/03/caleb-george-144977-unsplash-1280x800.jpg"
+                    width="100%"
+                  />
                 </Card>
               </div>
             </Col>
