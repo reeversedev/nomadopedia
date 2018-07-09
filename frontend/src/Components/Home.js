@@ -8,7 +8,8 @@ import {
   CardBody,
   CardLink,
   CardTitle,
-  CardSubtitle
+  CardSubtitle,
+  CardText
 } from "reactstrap";
 
 class Home extends Component {
@@ -21,14 +22,17 @@ class Home extends Component {
             <Col sm="8">
               <div>
                 <Card>
-                  <CardTitle className="text-center">Card Title</CardTitle>
-                  <CardSubtitle />
+                  <CardText className="text-center">March 10, 2018</CardText>
+                  <CardTitle className="text-center">
+                    Awesome Standard Post
+                  </CardTitle>
+                  <CardLink className="text-center text-uppercase text-warning">Lifestyle/ widget</CardLink>
                 </Card>
               </div>
             </Col>
             <Col sm="4">
               <Card>
-                <CardTitle className="text-center">Card Title</CardTitle>
+                <CardTitle className="text-center">Hi, I am Sorabh</CardTitle>
                 <CardSubtitle />
               </Card>
             </Col>
