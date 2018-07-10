@@ -18,8 +18,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <ImageSlider />
         <Container>
+        <ImageSlider />
           <Row className="mt-4">
             <Col sm="8">
               <div>
