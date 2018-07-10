@@ -12,12 +12,12 @@ export default class ImageSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 2000
+      autoplaySpeed: 5000
     };
     return (
-      <Slider {...settings} className="text-center">
-          <div>
-            <h3>1</h3>
+      <Slider {...settings} className="text-center mb-4">
+          <div className="d-flex align-items-center justify-content-center">
+            <img src="https://vancouver.ca/images/cov/feature/granville-island-fall.jpg" width="1000" />
           </div>
           <div>
             <h3>2</h3>

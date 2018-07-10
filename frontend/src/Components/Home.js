@@ -18,9 +18,9 @@ class Home extends Component {
   render() {
     return (
       <div>
-        {/* <ImageSlider /> */}
+        <ImageSlider />
         <Container>
-          <Row>
+          <Row className="mt-4">
             <Col sm="8">
               <div>
                 <Card>
@@ -73,7 +73,7 @@ class Home extends Component {
                       Behold.
                     </CardText>
                   </CardBody>
-                  <CardFooter>
+                  <CardFooter className="gray-background">
                     <Row>
                       <Col sm="4">
                         <div className="about-image">
@@ -85,8 +85,8 @@ class Home extends Component {
                         <CardTitle><b>Sorabh</b></CardTitle>
                         <p className="summary">
                           Share a little biographical information to fill out
-                          your profile. This may be shown publicly. View all
-                          posts by Victor
+                          your profile. This may be shown publicly.<a> View all
+                          posts by Victor</a>
                         </p>
                         </div>
                       </Col>
