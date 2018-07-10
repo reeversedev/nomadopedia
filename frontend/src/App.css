@@ -46,4 +46,15 @@
   line-height: 1.5;
   margin-bottom: 40px;
 }
+.card-text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #7b7b7b;
+}
+.summary {
+  font-size: 14.5px;
+}
+.about-author {
+  margin-top: 25px;
+}
 
