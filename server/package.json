@@ -1,0 +1,16 @@
+{
+  "name": "nomadopedia-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gatsby": "^1.9.273",
+    "keystone": "^4.0.0-rc.1",
+    "underscore": "^1.9.1"
+  }
+}
