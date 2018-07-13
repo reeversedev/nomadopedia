@@ -8,18 +8,24 @@ import {
   CardBody,
   CardLink,
   CardTitle,
-  CardSubtitle,
   CardText,
   CardImg,
   CardFooter
 } from "reactstrap";
 
 class Home extends Component {
+  componentDidMount = () => {
+    fetch("http://localhost:3000/nomadopedia")
+      .then(data => data.json())
+      .then(data => {
+        console.log(data);
+      });
+  };
   render() {
     return (
       <div>
         <Container>
-        <ImageSlider />
+          <ImageSlider />
           <Row className="mt-4">
             <Col sm="8">
               <div>
@@ -27,7 +33,7 @@ class Home extends Component {
                   <CardBody>
                     <CardText className="text-center">March 10, 2018</CardText>
                     <CardTitle className="text-center">
-                      Awesome Standard Post
+                     * Awesome Standard Post
                     </CardTitle>
                     <p className="text-center ">
                       <CardLink className="text-uppercase text-warning">
@@ -38,6 +44,7 @@ class Home extends Component {
                   <img
                     src="https://themes.wplook.com/morning-time/wp-content/uploads/sites/16/2018/03/caleb-george-144977-unsplash-1280x800.jpg"
                     width="100%"
+                    alt=""
                   />
                   <CardBody>
                     <CardText>
@@ -77,17 +84,24 @@ class Home extends Component {
                     <Row>
                       <Col sm="4">
                         <div className="about-image">
-                          <img src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/31490594_10216669808566432_3735181059290174503_n.jpg?_nc_fx=ffjr1-1&_nc_cat=0&oh=69a9146ff5da92101ca90a2b5ca225a0&oe=5BE335E6" />
+                          <img
+                            src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/31490594_10216669808566432_3735181059290174503_n.jpg?_nc_fx=ffjr1-1&_nc_cat=0&oh=69a9146ff5da92101ca90a2b5ca225a0&oe=5BE335E6"
+                            alt=""
+                          />
                         </div>
                       </Col>
                       <Col>
-                      <div className="about-author">
-                        <CardTitle><b>Sorabh</b></CardTitle>
-                        <p className="summary">
-                          Share a little biographical information to fill out
-                          your profile. This may be shown publicly.<a> View all
-                          posts by Victor</a>
-                        </p>
+                        <div className="about-author">
+                          <CardTitle>
+                            <b>Sorabh</b>
+                          </CardTitle>
+                          <p className="summary">
+                            Share a little biographical information to fill out
+                            your profile. This may be shown publicly.<a>
+                              {" "}
+                              View all posts by Victor
+                            </a>
+                          </p>
                         </div>
                       </Col>
                     </Row>

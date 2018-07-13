@@ -17,7 +17,7 @@ export default class ImageSlider extends Component {
     return (
       <Slider {...settings} className="text-center mb-4">
           <div className="d-flex align-items-center justify-content-center">
-            <img src="https://vancouver.ca/images/cov/feature/granville-island-fall.jpg" width="1000" />
+            <img src="../sorabh_food.jpeg" width="800" height="500" alt="" />
           </div>
           <div>
             <h3>2</h3>
