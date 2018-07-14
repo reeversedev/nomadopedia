@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import Header from "../Components/Header";
+import Header from "./Header";
 import Home from "./Home";
 
-export default class AppLayout extends Component {
+// import "bootstrap/dist/css/bootstrap.min.css";
+
+class AppLayout extends Component {
   render() {
     return (
       <div>
@@ -12,3 +14,4 @@ export default class AppLayout extends Component {
     );
   }
 }
+export default AppLayout;
