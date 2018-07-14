@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export default class ImageSlider extends Component {
   render() {
@@ -15,7 +13,19 @@ export default class ImageSlider extends Component {
       autoplaySpeed: 5000
     };
     return (
-      <Slider {...settings} className="text-center mb-4">
+      <div>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charset="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+        <Slider {...settings} className="text-center mb-4">
           <div className="d-flex align-items-center justify-content-center">
             <img src="../sorabh_food.jpeg" width="800" height="500" alt="" />
           </div>
@@ -34,7 +44,8 @@ export default class ImageSlider extends Component {
           <div>
             <h3>6</h3>
           </div>
-      </Slider>
+        </Slider>
+      </div>
     );
   }
 }
