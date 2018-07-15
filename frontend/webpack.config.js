@@ -1,4 +1,5 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require('path');
 
 module.exports = {
   entry: ["./src/index.js"],
@@ -28,7 +29,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ["", ".js", ".jsx"]
+    extensions: ["", ".js", ".jsx"],
+    alias: {
+      'public': path.resolve('./src/public')
+    }
   },
   devServer: {
     historyApiFallback: true,
