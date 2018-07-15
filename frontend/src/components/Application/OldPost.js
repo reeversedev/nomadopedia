@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Card, CardImg, CardTitle, CardBody, CardText } from "reactstrap";
 
 export default class OldPost extends Component {
   render() {

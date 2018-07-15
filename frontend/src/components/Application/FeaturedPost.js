@@ -1,5 +1,16 @@
 import React, { Component } from "react";
 
+import {
+  Card,
+  CardBody,
+  CardText,
+  CardTitle,
+  CardLink,
+  CardFooter,
+  Row,
+  Col
+} from "reactstrap";
+
 export default class FeaturedPost extends Component {
   render() {
     return (
