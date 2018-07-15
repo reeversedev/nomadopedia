@@ -57,3 +57,16 @@
 .about-author {
   margin-top: 25px;
 }
+.card-matter {
+  padding-left: 25px;
+}
+.card-matter h4 {
+  font-weight: bold;
+  font-size: 17px;
+  color: #d95204;
+}
+.card-matter p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #7b7b7b;
+}

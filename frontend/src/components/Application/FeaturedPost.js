@@ -18,9 +18,9 @@ export default class FeaturedPost extends Component {
         <Card>
           <CardBody>
             <CardText className="text-center">March 10, 2018</CardText>
-            <CardTitle className="text-center">
-              * Awesome Standard Post
-            </CardTitle>
+            <h3 className="text-center">
+              <b>Awesome Standard Post</b>
+            </h3>
             <p className="text-center ">
               <CardLink className="text-uppercase text-warning">
                 Lifestyle/ widget
