@@ -16,4 +16,4 @@ const postSchema = new mongoose.Schema({
   subcategory: String
 });
 
-const Post = (module.exports = mongoose.model("Post", postSchema));
+module.exports = mongoose.model("Post", postSchema);
