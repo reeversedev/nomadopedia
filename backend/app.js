@@ -8,7 +8,20 @@ var bodyParser = require("body-parser");
 var index = require("./routes/index");
 var users = require("./routes/users");
 
+const mongoose = require("mongoose");
+const keys = require("./config/Keys");
+
 const cors = require("cors");
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(
+  keys.mongo,
+  { useNewUrlParser: true },
+  () => {
+    console.log("Connected to Database");
+  }
+);
 
 var app = express();
 
