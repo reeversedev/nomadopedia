@@ -1,6 +1,6 @@
 const Routes = {
   home: "/",
   admin: "/admin",
-  createpost: '/createpost'
+  createpost: '/admin/createpost'
 };
 export default Routes;

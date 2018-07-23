@@ -1,32 +1,28 @@
 import React, { Component } from "react";
 import AdminHeader from "./AdminHeader";
 import { Container, Col, Row } from "reactstrap";
-import AllPosts from "./AllPosts";
 
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 
-import Routes from '../../config/routes';
+import Routes from "../../config/routes";
+import CreatePost from "./CreatePost";
+import AdminHome from "./AdminHome";
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
   render() {
     return (
       <div>
         <AdminHeader />
         <Container>
-          <Row className="mt-4">
-            <Col sm="8">
-              <AllPosts />
-            </Col>
-            <Col sm="4">
-              <div className="d-flex justify-content-end align-items-end">
-                <Link to={Routes.createpost} className="btn btn-primary pull-right">
-                  + Create Post
-                </Link>
-              </div>
-            </Col>
-          </Row>
+          <Router>
+            <Switch>
+              <Route exact path={Routes.admin} component={AdminHome} />
+              <Route exact path={Routes.createpost} component={CreatePost} />
+            </Switch>
+          </Router>
         </Container>
       </div>
     );
   }
 }
+export default Dashboard;

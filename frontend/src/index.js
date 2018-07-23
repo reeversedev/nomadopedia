@@ -23,7 +23,6 @@ ReactDOM.render(
         <Route exact path={Routes.home} component={AppLayout} />
 
         <Route exact path={Routes.admin} component={Dashboard} />
-        <Route exact path={Routes.createpost} component={CreatePost} />
       </Switch>
     </Router>
   </Provider>,
