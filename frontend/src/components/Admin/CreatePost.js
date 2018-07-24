@@ -11,7 +11,8 @@ class CreatePost extends Component {
       subtitle: "",
       tags: [],
       type: "draft",
-      photourl: ""
+      photourl: "",
+      paragraph: []
     };
   }
   addParagraph = () => {
@@ -20,12 +21,19 @@ class CreatePost extends Component {
     });
     console.log(this.state.pCount);
   };
-  handleTags = (e) => {
-    let tags = e.target.value.split(',');
+  handleTags = e => {
+    let tags = e.target.value.split(",");
     this.setState({
       tags: tags
-    })
-  }
+    });
+  };
+  handleParagraphs = (index, e) => {
+    let array = this.state.paragraph.slice();
+    array[index] = e.target.value;
+    this.setState({
+      paragraph: array
+    });
+  };
   render() {
     return (
       <div>
@@ -108,6 +116,7 @@ class CreatePost extends Component {
                           name="content"
                           placeholder="Content Paragraph"
                           className="content-paragraph"
+                          onChange={e => this.handleParagraphs(i, e)}
                         />{" "}
                         {i === this.state.pCount - 1 ? (
                           <div className="d-flex align-items-end justify-content-end mt-2">
@@ -132,7 +141,12 @@ class CreatePost extends Component {
               <div className="mt-4">
                 <h3 className="word-wrap text-center">{this.state.title}</h3>
                 <p className="text-muted text-center">{this.state.subtitle}</p>
-                <p className="text-warning text-center text-capitalize font-weight-bold">{this.state.tags.join(' / ')}</p>
+                <p className="text-warning text-center text-capitalize font-weight-bold">
+                  {this.state.tags.join(" / ")}
+                </p>
+                {this.state.paragraph.map((val, index) => {
+                  return <p key={index}>{val}</p>
+                })}
               </div>
             </Col>
           </Row>
