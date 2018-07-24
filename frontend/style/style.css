@@ -76,3 +76,6 @@
 .content-paragraph {
   min-height: 120px;
 }
+.word-wrap {
+  word-wrap: break-word;
+}

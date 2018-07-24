@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import _ from "lodash";
 
-import { Form, FormGroup, Input, Row, Col, Label } from "reactstrap";
+import { Form, FormGroup, Input, Row, Col, Label, Container } from "reactstrap";
 class CreatePost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pCount: 1
+      pCount: 1,
+      title: "",
+      subtitle: "",
+      tags: [],
+      type: "draft",
+      photourl: ""
     };
   }
   addParagraph = () => {
@@ -15,89 +20,123 @@ class CreatePost extends Component {
     });
     console.log(this.state.pCount);
   };
+  handleTags = (e) => {
+    let tags = e.target.value.split(',');
+    this.setState({
+      tags: tags
+    })
+  }
   render() {
     return (
       <div>
-        <Row>
-          <Col sm="6">
-            <div className="mt-4">
-              <h1>Create Post</h1>
-            </div>
-            <Form className="mt-4">
-              <FormGroup row>
-                <Label for="title" sm={2}>
-                  Title
-                </Label>
-                <Col sm={10}>
-                  <Input
-                    type="text"
-                    name="title"
-                    placeholder="Title of the Post"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="subtitle" sm={2}>
-                  Subtitle
-                </Label>
-                <Col sm={10}>
-                  <Input
-                    type="text"
-                    name="subtitle"
-                    placeholder="Subtitle of the Post"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="tag" sm={2}>
-                  Tags
-                </Label>
-                <Col sm={10}>
-                  <Input type="text" name="tag" placeholder="Tags" />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="url" sm={2}>
-                  Photo URL
-                </Label>
-                <Col sm={10}>
-                  <Input type="url" name="url" placeholder="Photo URL" />
-                </Col>
-              </FormGroup>
-              {_.times(this.state.pCount, i => {
-                return (
-                  <FormGroup row key={i}>
-                    <Label for="content" sm={2}>
-                      Paragraph({i + 1})
-                    </Label>
-                    <Col sm={10}>
-                      <Input
-                        type="textarea"
-                        name="content"
-                        placeholder="Content Paragraph"
-                        className="content-paragraph"
-                      />{" "}
-                      {i === this.state.pCount - 1 ? (
-                        <div className="d-flex align-items-end justify-content-end mt-2">
-                          <button
-                            type="button"
-                            onClick={this.addParagraph}
-                            className="btn btn-primary"
-                          >
-                            Add
-                          </button>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </Col>
-                  </FormGroup>
-                );
-              })}
-            </Form>
-          </Col>
-        </Row>
-        <Col />
+        <Container>
+          <Row>
+            <Col sm="6">
+              <div className="mt-4">
+                <h1>Create Post</h1>
+              </div>
+              <Form className="mt-4">
+                <FormGroup row>
+                  <Label for="title" sm={2}>
+                    Title
+                  </Label>
+                  <Col sm={10}>
+                    <Input
+                      type="text"
+                      name="title"
+                      placeholder="Title of the Post"
+                      onChange={e => this.setState({ title: e.target.value })}
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label for="subtitle" sm={2}>
+                    Subtitle
+                  </Label>
+                  <Col sm={10}>
+                    <Input
+                      type="text"
+                      name="subtitle"
+                      placeholder="Subtitle of the Post"
+                      onChange={e =>
+                        this.setState({ subtitle: e.target.value })
+                      }
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label for="tag" sm={2}>
+                    Tags
+                  </Label>
+                  <Col sm={10}>
+                    <Input
+                      type="text"
+                      name="tag"
+                      placeholder="Seperate the tags using commas. Ex: Lifestyle, Travel"
+                      onChange={this.handleTags}
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label for="type" sm={2}>
+                    Type
+                  </Label>
+                  <Col sm={10}>
+                    <Input type="select" name="type">
+                      <option>Draft</option>
+                      <option>Active</option>
+                    </Input>
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label for="url" sm={2}>
+                    Photo URL
+                  </Label>
+                  <Col sm={10}>
+                    <Input type="url" name="url" placeholder="Photo URL" />
+                  </Col>
+                </FormGroup>
+                {_.times(this.state.pCount, i => {
+                  return (
+                    <FormGroup row key={i}>
+                      <Label for="content" sm={2}>
+                        Paragraph({i + 1})
+                      </Label>
+                      <Col sm={10}>
+                        <Input
+                          type="textarea"
+                          name="content"
+                          placeholder="Content Paragraph"
+                          className="content-paragraph"
+                        />{" "}
+                        {i === this.state.pCount - 1 ? (
+                          <div className="d-flex align-items-end justify-content-end mt-2">
+                            <button
+                              type="button"
+                              onClick={this.addParagraph}
+                              className="btn btn-primary"
+                            >
+                              Add
+                            </button>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </Col>
+                    </FormGroup>
+                  );
+                })}
+              </Form>
+            </Col>
+            <Col sm="6">
+              <div className="mt-4">
+                <h3 className="word-wrap text-center">{this.state.title}</h3>
+                <p className="text-muted text-center">{this.state.subtitle}</p>
+                <p className="text-warning text-center text-capitalize font-weight-bold">{this.state.tags.join(' / ')}</p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }
