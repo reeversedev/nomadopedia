@@ -22,7 +22,10 @@ ReactDOM.render(
       <Switch>
         <Route exact path={Routes.home} component={AppLayout} />
 
+        {/* Dashboard Routes */}
         <Route exact path={Routes.admin} component={Dashboard} />
+        <Route exact path={Routes.createpost} component={Dashboard} />
+        
       </Switch>
     </Router>
   </Provider>,

@@ -40,8 +40,8 @@ class AdminHeader extends Component {
                   Options
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>Option 1</DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
+                  <DropdownItem>Active Posts</DropdownItem>
+                  <DropdownItem>Drafts</DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>Logout</DropdownItem>
                 </DropdownMenu>

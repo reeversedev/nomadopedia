@@ -70,3 +70,9 @@
   line-height: 1.5;
   color: #7b7b7b;
 }
+.text-bold {
+  font-weight: bold;
+}
+.content-paragraph {
+  min-height: 120px;
+}

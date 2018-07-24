@@ -16,6 +16,7 @@ export default class AllPosts extends Component {
         <div className="mt-4">
           <Card>
             <CardBody>
+              <CardSubtitle className="text-bold">#DRAFT</CardSubtitle>
               <CardTitle className="text-center">
                 Awesome Standard Post
               </CardTitle>
