@@ -1,20 +1,16 @@
 import { CREATE_POST } from "./types";
 
-import { axiosNoAuth } from "../config/axios-instances";
+import Axios, { axios } from "axios";
 
 import { API_BASE_URL } from "../config/config";
 
-export function createPost(postData, successCallBack) {
-  return async function(dispatch) {
-    try {
-      const response = await axiosNoAuth.post(
-        API_BASE_URL + "post/submit",
-        postData
-      );
-      successCallBack && successCallBack();
-      await dispatch({ type: CREATE_POST, payload: response });
-    } catch (e) {
-      console.log(e);
-    }
-  };
+export function createPost(postData) {
+  
+  const request = Axios.post(API_BASE_URL + 'post/submit', postData);
+  console.log(request);
+
+  return {
+    type: CREATE_POST,
+    payload: request
+  }
 }

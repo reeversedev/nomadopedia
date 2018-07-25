@@ -28,11 +28,14 @@
     "lodash": "^3.10.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-redux": "5.0.7",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-slick": "^0.23.1",
     "reactstrap": "^6.3.0",
-    "redux": "4.0.0",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
     "style-loader": "^0.21.0"
   }
 }

@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import _ from "lodash";
 
+import { connect } from "react-redux";
+
+import { bindActionCreators } from "redux";
+
+import { createPost } from "../../actions/create-post";
+
+import "regenerator-runtime/runtime";
+
 import { Form, FormGroup, Input, Row, Col, Label, Container } from "reactstrap";
 class CreatePost extends Component {
   constructor(props) {
@@ -34,7 +42,19 @@ class CreatePost extends Component {
       paragraph: array
     });
   };
-  submitPost = () => {
+  submitPost = async () => {
+    let postData = await {
+      data: {
+        title: this.state.title
+      }
+    };
+    // await this.props.createPost(postData, this.successCallBack);
+    await this.props.createPost(postData);
+  };
+  successCallBack = () => {
+    this.setState({
+      createdPost: true
+    });
   };
   render() {
     return (
@@ -146,7 +166,7 @@ class CreatePost extends Component {
             </Col>
             <Col sm="6">
               <div className="mt-4">
-                <button className="btn btn-success" onSubmit={this.submitPost}>
+                <button className="btn btn-success" onClick={this.submitPost}>
                   Publish Post
                 </button>
                 <h3 className="word-wrap text-center text-capitalize">
@@ -181,4 +201,23 @@ class CreatePost extends Component {
     );
   }
 }
-export default CreatePost;
+
+// function maptStateToProps(state) {
+//   return {
+//     createPost: state.createPost
+//   };
+// }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ createPost }, dispatch);
+}
+
+// export default connect(
+//   maptStateToProps,
+//   { createPost }
+// )(CreatePost);
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CreatePost);
