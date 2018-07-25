@@ -101,7 +101,12 @@ class CreatePost extends Component {
                     Photo URL
                   </Label>
                   <Col sm={10}>
-                    <Input type="url" name="url" placeholder="Photo URL" />
+                    <Input
+                      type="url"
+                      name="url"
+                      placeholder="Photo URL"
+                      onChange={e => this.setState({ url: e.target.value })}
+                    />
                   </Col>
                 </FormGroup>
                 {_.times(this.state.pCount, i => {
@@ -139,13 +144,25 @@ class CreatePost extends Component {
             </Col>
             <Col sm="6">
               <div className="mt-4">
-                <h3 className="word-wrap text-center">{this.state.title}</h3>
-                <p className="text-muted text-center">{this.state.subtitle}</p>
+                <h3 className="word-wrap text-center text-capitalize">{this.state.title}</h3>
+                <p className="text-muted text-center text-capitalize">{this.state.subtitle}</p>
                 <p className="text-warning text-center text-capitalize font-weight-bold">
                   {this.state.tags.join(" / ")}
                 </p>
+                <div className="mt-4">
+                  {this.state.url ? (
+                    <img
+                      src={this.state.url}
+                      className="mb-4"
+                      height="300"
+                      width="500"
+                    />
+                  ) : (
+                    ""
+                  )}
+                </div>
                 {this.state.paragraph.map((val, index) => {
-                  return <p key={index}>{val}</p>
+                  return <p key={index}>{val}</p>;
                 })}
               </div>
             </Col>
