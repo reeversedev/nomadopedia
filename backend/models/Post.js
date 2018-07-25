@@ -9,10 +9,10 @@ const postSchema = new mongoose.Schema({
     tag2: String,
     tag3: String
   },
-  content: Object,
+  content: String,
   author: String,
   type: String,
-  photosUrl: Object,
+  photosUrl: String,
   subcategory: String
 });
 
