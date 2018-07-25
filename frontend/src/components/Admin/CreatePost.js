@@ -34,6 +34,8 @@ class CreatePost extends Component {
       paragraph: array
     });
   };
+  submitPost = () => {
+  };
   render() {
     return (
       <div>
@@ -144,8 +146,15 @@ class CreatePost extends Component {
             </Col>
             <Col sm="6">
               <div className="mt-4">
-                <h3 className="word-wrap text-center text-capitalize">{this.state.title}</h3>
-                <p className="text-muted text-center text-capitalize">{this.state.subtitle}</p>
+                <button className="btn btn-success" onSubmit={this.submitPost}>
+                  Publish Post
+                </button>
+                <h3 className="word-wrap text-center text-capitalize">
+                  {this.state.title}
+                </h3>
+                <p className="text-muted text-center text-capitalize">
+                  {this.state.subtitle}
+                </p>
                 <p className="text-warning text-center text-capitalize font-weight-bold">
                   {this.state.tags.join(" / ")}
                 </p>
