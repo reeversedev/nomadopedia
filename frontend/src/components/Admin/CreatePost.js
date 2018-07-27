@@ -55,7 +55,11 @@ class CreatePost extends Component {
     });
   };
   makeAToast = data => {
-    toast.success(data);
+    if (data.type === "success") {
+      toast.success(data.text);
+    } else {
+      toast.error(data.text);
+    }
   };
   successCallBack = () => {
     this.setState({
