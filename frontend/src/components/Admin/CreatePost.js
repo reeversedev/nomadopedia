@@ -63,6 +63,8 @@ class CreatePost extends Component {
           <Row>
             <Col sm="6">
               <div className="mt-4">
+                {this.state.result ? <h1>{this.state.result}</h1> : ""}
+
                 <h1>Create Post</h1>
               </div>
               <Form className="mt-4">
@@ -208,16 +210,15 @@ class CreatePost extends Component {
 //   };
 // }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ createPost }, dispatch);
+function mapStateToProps(state) {
+  console.log("The state", state);
+
+  return {
+    createPost: state
+  };
 }
 
-// export default connect(
-//   maptStateToProps,
-//   { createPost }
-// )(CreatePost);
-
 export default connect(
-  null,
-  mapDispatchToProps
+  mapStateToProps,
+  { createPost }
 )(CreatePost);

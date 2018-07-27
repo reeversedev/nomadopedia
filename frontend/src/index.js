@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Middlewares
 import reduxThunk from "redux-thunk";
 import promise from "redux-promise";
-import { createLogger as logger } from "redux-logger";
+import { logger } from "redux-logger";
 import { axiosAuthMiddleware } from "./middleware/axios-middleware";
 
 // Components
