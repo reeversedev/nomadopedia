@@ -49,7 +49,9 @@ class CreatePost extends Component {
       }
     };
     // await this.props.createPost(postData, this.successCallBack);
-    await this.props.createPost(postData);
+    await this.props.createPost(postData).then(result => this.setState({
+      result: result.payload.data
+    }));
   };
   successCallBack = () => {
     this.setState({
@@ -214,7 +216,7 @@ function mapStateToProps(state) {
   console.log("The state", state);
 
   return {
-    createPost: state
+    createPost: state.createPost.createPost
   };
 }
 

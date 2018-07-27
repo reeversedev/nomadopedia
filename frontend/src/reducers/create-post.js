@@ -20,7 +20,7 @@ const INITIAL_STATE = {
 // }
 
 export default function(state = INITIAL_STATE, action) {
-  //better to return INITAL_STATE because returning null will cause problems after getting response
+  // better to return INITAL_STATE because returning null will cause problems after getting responsse
   if (action.type === CREATE_POST) {
     return { ...state, createPost: [...state.createPost, action.payload] };
   } else {
