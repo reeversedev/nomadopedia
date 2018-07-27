@@ -3,7 +3,8 @@ import _ from "lodash";
 
 import { connect } from "react-redux";
 
-import { bindActionCreators } from "redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { createPost } from "../../actions/create-post";
 
@@ -49,9 +50,12 @@ class CreatePost extends Component {
       }
     };
     // await this.props.createPost(postData, this.successCallBack);
-    await this.props.createPost(postData).then(result => this.setState({
-      result: result.payload.data
-    }));
+    await this.props.createPost(postData).then(result => {
+      this.makeAToast(result.payload.data);
+    });
+  };
+  makeAToast = data => {
+    toast.success(data);
   };
   successCallBack = () => {
     this.setState({
@@ -65,8 +69,9 @@ class CreatePost extends Component {
           <Row>
             <Col sm="6">
               <div className="mt-4">
-                {this.state.result ? <h1>{this.state.result}</h1> : ""}
-
+                <div>
+                  <ToastContainer />
+                </div>
                 <h1>Create Post</h1>
               </div>
               <Form className="mt-4">
