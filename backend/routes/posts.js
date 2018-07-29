@@ -5,6 +5,18 @@ const moment = require("moment");
 
 const Post = require("../models/Post");
 
+router.get("/getAllPosts", (req, res, next) => {
+  Post.find((err, post) => {
+    res.json(post);
+  });
+});
+
+router.get("/:slug", (req, res, next) => {
+  Post.find({ slug: req.params.slug }, (err, post) => {
+    res.json(post);
+  });
+});
+
 router.post("/submit", (req, res, next) => {
   // General Mockup for how data will be saved here.
   let data = new Post({
@@ -25,7 +37,16 @@ router.post("/submit", (req, res, next) => {
 
   data.save((err, result) => {
     if (!err) {
-      console.log("Post is saved");
+      res.json({
+        type: "success",
+        text: "Your post has been saved successfully"
+      });
+    } else {
+      console.log(err);
+      res.json({
+        type: "error",
+        text: "Something went wrong. Please contact the developer."
+      });
     }
   });
 });
