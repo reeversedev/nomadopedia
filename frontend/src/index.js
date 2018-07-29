@@ -19,7 +19,7 @@ import Dashboard from "./components/Admin/Dashboard";
 import Routes from "./config/routes";
 import CreatePost from "./components/Admin/CreatePost";
 import rootReducer from "./reducers";
-import createPost from "./reducers/create-post";
+import createPost from "./reducers/post";
 
 const createStoreWithMiddleware = applyMiddleware(promise, logger)(
   createStore

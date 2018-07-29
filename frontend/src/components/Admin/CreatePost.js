@@ -6,11 +6,12 @@ import { connect } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { createPost } from "../../actions/create-post";
+import { createPost } from "../../actions/post";
 
 import "regenerator-runtime/runtime";
 
 import { Form, FormGroup, Input, Row, Col, Label, Container } from "reactstrap";
+import AllPosts from "./AllPosts";
 class CreatePost extends Component {
   constructor(props) {
     super(props);
@@ -182,7 +183,7 @@ class CreatePost extends Component {
                 <button className="btn btn-success" onClick={this.submitPost}>
                   Publish Post
                 </button>
-                <h3 className="word-wrap text-center text-capitalize">
+                {/* <h3 className="word-wrap text-center text-capitalize">
                   {this.state.title}
                 </h3>
                 <p className="text-muted text-center text-capitalize">
@@ -205,7 +206,8 @@ class CreatePost extends Component {
                 </div>
                 {this.state.paragraph.map((val, index) => {
                   return <p key={index}>{val}</p>;
-                })}
+                })} */}
+                <AllPosts />
               </div>
             </Col>
           </Row>
