@@ -183,7 +183,7 @@ class CreatePost extends Component {
                 <button className="btn btn-success" onClick={this.submitPost}>
                   Publish Post
                 </button>
-                {/* <h3 className="word-wrap text-center text-capitalize">
+                <h3 className="word-wrap text-center text-capitalize">
                   {this.state.title}
                 </h3>
                 <p className="text-muted text-center text-capitalize">
@@ -206,7 +206,7 @@ class CreatePost extends Component {
                 </div>
                 {this.state.paragraph.map((val, index) => {
                   return <p key={index}>{val}</p>;
-                })} */}
+                })}
                 <AllPosts />
               </div>
             </Col>
