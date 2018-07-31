@@ -11,86 +11,91 @@ import {
   Col
 } from "reactstrap";
 
-export default class FeaturedPost extends Component {
+import moment, * as moments from 'moment';
+
+import { connect } from "react-redux";
+import { getAllPosts } from "../../actions/post";
+import post from "../../reducers/post";
+class FeaturedPost extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      allPosts: []
+    };
+  }
+  componentWillMount = () => {
+    this.props.getAllPosts().then(res => {
+      this.setState({
+        allPosts: res.payload.data
+      });
+    });
+  };
   render() {
     return (
       <div>
-        <Card>
-          <CardBody>
-            <CardText className="text-center">March 10, 2018</CardText>
-            <h3 className="text-center">
-              <b>Awesome Standard Post</b>
-            </h3>
-            <p className="text-center ">
-              <CardLink className="text-uppercase text-warning">
-                Lifestyle/ widget
-              </CardLink>
-            </p>
-          </CardBody>
-          <img
-            src="https://themes.wplook.com/morning-time/wp-content/uploads/sites/16/2018/03/caleb-george-144977-unsplash-1280x800.jpg"
-            width="100%"
-            alt=""
-          />
-          <CardBody>
-            <CardText>
-              Bearing cattle void spirit third whose fill let shall our also
-              signs. Fly subdue of herb won’t. Lights one Man whose green two.
-              Hath, void created.
-            </CardText>
-            <CardText>
-              In over under beast seed He. Thing Second stars green there
-              gathering living. Without greater image moving living signs fruit
-              above heaven. Hath, behold isn’t Day.
-            </CardText>
-            <CardText>
-              Isn’t saw fill green open brought grass lights darkness doesn’t
-              seas, stars tree void fowl god Replenish had third, make lights
-              likeness years above night, creeping is divide let first may
-              after. Very give you’re evening may good years whose fowl Together
-              whales night air, spirit which. Whose creepeth can’t dry second
-              and whales. Their herb winged.
-            </CardText>
-            <CardText>
-              Kind fowl beginning, every man saying, so fish without replenish
-              made won’t good, face i. Beginning. Which good Moving in without
-              given won’t hath fish said, sea beast herb a waters to form
-              creepeth our man open shall subdue. Him whose.
-            </CardText>
-            <CardText>
-              Life so moving unto lesser fourth very seed and without may whose
-              Replenish were seas life heaven place were. Seasons earth of great
-              creepeth Unto. Make to herb. Behold.
-            </CardText>
-          </CardBody>
-          <CardFooter className="gray-background">
-            <Row>
-              <Col sm="4">
-                <div className="about-image">
-                  <img
-                    src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/31490594_10216669808566432_3735181059290174503_n.jpg?_nc_fx=ffjr1-1&_nc_cat=0&oh=69a9146ff5da92101ca90a2b5ca225a0&oe=5BE335E6"
-                    alt=""
-                  />
-                </div>
-              </Col>
-              <Col>
-                <div className="about-author">
-                  <CardTitle>
-                    <b>Sorabh</b>
-                  </CardTitle>
-                  <p className="summary">
-                    Share a little biographical information to fill out your
-                    profile. This may be shown publicly.<a>
-                      {" "}
-                      View all posts by Victor
-                    </a>
+        {this.state.allPosts.map((post, index) => {
+          return (
+            <div key={index}>
+              <Card>
+                <CardBody>
+                  <CardText className="text-center">
+                  {moment(post.date, 'YYYY-MM-DD HH:MM:ss').unix()}
+                  </CardText>
+                  <h3 className="text-center">
+                    <b>{post.title}</b>
+                  </h3>
+                  <p className="text-center ">
+                    <CardLink className="text-uppercase text-warning">
+                      {post.tags.join(" / ")}
+                    </CardLink>
                   </p>
-                </div>
-              </Col>
-            </Row>
-          </CardFooter>
-        </Card>
+                </CardBody>
+                <img src={post.photosUrl} width="100%" alt="" />
+                <CardBody>
+                  {post.content.map((paragraph, index) => {
+                    return <CardText key={index}>{paragraph}</CardText>;
+                  })}
+                </CardBody>
+                <CardFooter className="gray-background">
+                  <Row>
+                    <Col sm="4">
+                      <div className="about-image">
+                        <img
+                          src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/31490594_10216669808566432_3735181059290174503_n.jpg?_nc_fx=ffjr1-1&_nc_cat=0&oh=69a9146ff5da92101ca90a2b5ca225a0&oe=5BE335E6"
+                          alt=""
+                        />
+                      </div>
+                    </Col>
+                    <Col>
+                      <div className="about-author">
+                        <CardTitle>
+                          <b>{post.author}</b>
+                        </CardTitle>
+                        <p className="summary">
+                          Share a little biographical information to fill out
+                          your profile. This may be shown publicly.<a>
+                            {" "}
+                            View all posts by Victor
+                          </a>
+                        </p>
+                      </div>
+                    </Col>
+                  </Row>
+                </CardFooter>
+              </Card>
+            </div>
+          );
+        })}
       </div>
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    getAllPosts: state.getAllPosts.getAllPosts
+  };
+}
+export default connect(
+  mapStateToProps,
+  { getAllPosts }
+)(FeaturedPost);
