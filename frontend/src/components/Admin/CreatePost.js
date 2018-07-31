@@ -47,7 +47,13 @@ class CreatePost extends Component {
   submitPost = async () => {
     let postData = await {
       data: {
-        title: this.state.title
+        title: this.state.title,
+        tags: this.state.tags,
+        content: this.state.paragraph,
+        author: "Sorabh Bothra",
+        type: this.state.type,
+        url: this.state.url,
+        subtitle: this.state.subtitle
       }
     };
     // await this.props.createPost(postData, this.successCallBack);
@@ -65,6 +71,11 @@ class CreatePost extends Component {
   successCallBack = () => {
     this.setState({
       createdPost: true
+    });
+  };
+  handleType = e => {
+    this.setState({
+      type: e.target.value
     });
   };
   render() {
@@ -126,7 +137,7 @@ class CreatePost extends Component {
                     Type
                   </Label>
                   <Col sm={10}>
-                    <Input type="select" name="type">
+                    <Input type="select" name="type" onChange={this.handleType}>
                       <option>Draft</option>
                       <option>Active</option>
                     </Input>
@@ -183,7 +194,7 @@ class CreatePost extends Component {
                 <button className="btn btn-success" onClick={this.submitPost}>
                   Publish Post
                 </button>
-                <h3 className="word-wrap text-center text-capitalize">
+                {/* <h3 className="word-wrap text-center text-capitalize">
                   {this.state.title}
                 </h3>
                 <p className="text-muted text-center text-capitalize">
@@ -203,7 +214,7 @@ class CreatePost extends Component {
                   ) : (
                     ""
                   )}
-                </div>
+                </div> */}
                 {this.state.paragraph.map((val, index) => {
                   return <p key={index}>{val}</p>;
                 })}
