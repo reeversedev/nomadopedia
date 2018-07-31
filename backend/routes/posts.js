@@ -19,20 +19,18 @@ router.get("/:slug", (req, res, next) => {
 
 router.post("/submit", (req, res, next) => {
   // General Mockup for how data will be saved here.
+  console.log(req.body.data);
+
   let data = new Post({
     title: req.body.data.title,
     slug: slug(req.body.data.title.toLowerCase()),
     date: moment(Date.now()).format("DD/MM/YYYY"),
-    tags: {
-      tag1: req.body.data.title,
-      tag2: req.body.data.title,
-      tag3: req.body.data.title
-    },
+    tags: req.body.data.tags,
     content: req.body.data.title,
-    author: req.body.data.title,
-    type: req.body.data.title,
-    photosUrl: req.body.data.title,
-    subcategory: req.body.data.title
+    author: req.body.data.author,
+    type: req.body.data.type,
+    photosUrl: req.body.data.url,
+    subcategory: req.body.data.subtitle
   });
 
   data.save((err, result) => {

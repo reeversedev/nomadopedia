@@ -8,15 +8,15 @@ const postSchema = new mongoose.Schema({
   },
   date: String,
   tags: {
-    tag1: String,
-    tag2: String,
-    tag3: String
+    type: Array
   },
-  content: String,
+  content: {
+    type: Array
+  },
   author: String,
   type: String,
   photosUrl: String,
-  subcategory: String
+  subtitle: String
 });
 
 module.exports = mongoose.model("Post", postSchema);
