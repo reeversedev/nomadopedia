@@ -2,6 +2,7 @@
   font-family: "Raleway", sans-serif;
   font-size: 25px;
   font-weight: bold;
+  float: left;
 }
 
 @keyframes App-logo-spin {
@@ -28,11 +29,11 @@
   font-size: 18px;
   color: #222222;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
 }
 .author-title::after {
-  content: '';
+  content: "";
   display: block;
   width: 60px;
   height: 1px;
@@ -82,5 +83,9 @@
 .nav-link {
   text-transform: uppercase;
   font-size: 0.8125rem;
-  color: black!important;
+  color: black !important;
+}
+.navbar {
+  height: 120px;
+  padding: 42px 20px 40px;
 }
