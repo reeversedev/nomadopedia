@@ -28,10 +28,10 @@ class Home extends Component {
     return (
       <div>
         <Container>
-          <ImageSlider />
-          <Row className="mt-4">
+          <ImageSlider className="mb-4" />
+          <Row>
             <Col sm="8">
-              <FeaturedPost />
+              <FeaturedPost className="mt-4" />
             </Col>
             <Col sm="4">
               <OldPost />

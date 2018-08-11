@@ -88,7 +88,19 @@ class CreatePost extends Component {
                 <div>
                   <ToastContainer />
                 </div>
-                <h1>Create Post</h1>
+                <div className="row">
+                  <div className="col-6">
+                    <h1>Create Post</h1>
+                  </div>
+                  <div className="col-6">
+                    <button
+                      className="btn btn-success"
+                      onClick={this.submitPost}
+                    >
+                      Publish Post
+                    </button>
+                  </div>
+                </div>
               </div>
               <Form className="mt-4">
                 <FormGroup row>
@@ -160,7 +172,8 @@ class CreatePost extends Component {
                   return (
                     <FormGroup row key={i}>
                       <Label for="content" sm={2}>
-                        Paragraph({i + 1})
+                        Paragraph(
+                        {i + 1})
                       </Label>
                       <Col sm={10}>
                         <Input
@@ -191,33 +204,9 @@ class CreatePost extends Component {
             </Col>
             <Col sm="6">
               <div className="mt-4">
-                <button className="btn btn-success" onClick={this.submitPost}>
-                  Publish Post
-                </button>
-                {/* <h3 className="word-wrap text-center text-capitalize">
-                  {this.state.title}
-                </h3>
-                <p className="text-muted text-center text-capitalize">
-                  {this.state.subtitle}
-                </p>
-                <p className="text-warning text-center text-capitalize font-weight-bold">
-                  {this.state.tags.join(" / ")}
-                </p>
-                <div className="mt-4">
-                  {this.state.url ? (
-                    <img
-                      src={this.state.url}
-                      className="mb-4"
-                      height="300"
-                      width="500"
-                    />
-                  ) : (
-                    ""
-                  )}
-                </div> */}
-                {this.state.paragraph.map((val, index) => {
+                {/* {this.state.paragraph.map((val, index) => {
                   return <p key={index}>{val}</p>;
-                })}
+                })} */}
                 <AllPosts />
               </div>
             </Col>
