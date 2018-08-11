@@ -29,7 +29,7 @@ export default class Header extends Component {
           <NavbarBrand href="/">
             <h1 className="site-title">NOMADOPEDIA</h1>
           </NavbarBrand>
-          <small className="text-uppercase text-muted">My Personal Blog</small>
+          <small className="text-uppercase text-muted subheading">My Personal Blog</small>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
